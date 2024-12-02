@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int p1, p2, c, turn;
+
 int dice() { return rand() % 6 + 1; }
 
 int move(int currentPosition, int roll)
@@ -74,6 +76,27 @@ void layout()
     {
         printf("%d      ", i);
     }
+}
+int maingame(){
+    c=dice();
+if(turn % 2 !=0){
+   
+   if(p1+c>100){
+    turn++;
+   }
+   else if(p1==0){
+    if(c==6){
+        p1=1;
+    }
+   }
+   else if(p1+c==100){
+    printf("P1 wins");
+   }
+   else{
+    turn++;
+    p1+=c;
+   }
+   }
 }
 
 int main()
