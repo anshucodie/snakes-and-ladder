@@ -17,12 +17,6 @@ void clearTerminal()
 #endif
 }
 
-#include<stdio.h>
-
-int P1 = 0;
-int P2 = 0;
-int board[100];
-
 void layout(int a , int b){
 
     for(int i = 0 ; i < 100 ; i++){
