@@ -199,6 +199,55 @@ void maingame()
             }
             printf("P2 rolled %d in the dice\n\n", c);
         }
+
+        switch (p1)
+        {
+        case 6:
+            p1 = 40;
+            break;
+        case 23:
+            p1 = 13;
+            break;
+        case 45:
+            p1 = 38;
+            break;
+        case 61:
+            p1 = 43;
+            break;
+        case 65:
+            p1 = 57;
+            break;
+        case 77:
+            p1 = 82;
+            break;
+        case 98:
+            p1 = 88;
+            break;
+        }
+        switch (p2)
+        {
+        case 6:
+            p2 = 40;
+            break;
+        case 23:
+            p2 = 13;
+            break;
+        case 45:
+            p2 = 38;
+            break;
+        case 61:
+            p2 = 43;
+            break;
+        case 65:
+            p2 = 57;
+            break;
+        case 77:
+            p2 = 82;
+            break;
+        case 98:
+            p2 = 88;
+            break;
+        }
     }
 }
 
