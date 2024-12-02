@@ -97,6 +97,7 @@ void layout(int a , int b){
             printf("%d      " , i);
             }
     }
+    printf("\n");
 }
 
 int maingame(){
