@@ -30,16 +30,18 @@ void layout(int a , int b){
         }
 
     for(int i = board[99] ; i >= board[98] ; i--){
-            if (i == a) { 
+            
+            if(i == a && i == b){
+                printf("#P12 ");
+            }
+
+            else if (i == a) { 
                 printf("#P1  "); 
             } 
+                
             else if (i == b) { 
                 printf("#P2  "); 
             } 
-
-            else if(i == a == b){
-                printf("#P12 ");
-            }
 
             else{
                 printf("%d    " , i);
@@ -47,16 +49,16 @@ void layout(int a , int b){
     }
 
     for(int i = board[97] ; i >= board[90] ; i--){
-            if (i == a) { 
+            if(i == a && i == b){
+                printf(" #P12 ");
+            }
+            
+            else if (i == a) { 
                 printf(" #P1  "); 
             } 
             else if (i == b) { 
                 printf(" #P2  "); 
             } 
-
-            else if(i == a == b){
-                printf(" #P12 ");
-            }
         
             else{
             printf(" %d    " , i);
@@ -70,17 +72,18 @@ void layout(int a , int b){
     for(int i = board[8] ; i >= board[1] ; i--){
         if(i%2 == 0){
             for(int j = 10*i ;j >= 10*i - 9 ; j--){
-            if (j == a) { 
+
+            if(j == a && j == b){
+                printf("#P12  ");
+            }
+                
+            else if (j == a) { 
                 printf("#P1   "); 
             } 
             else if (j == b) { 
                 printf("#P2   "); 
             } 
-
-            else if(j == a == b){
-                printf("#P12  ");
-            }
-
+                
             else{
             printf("%d     " , j);
             }
@@ -93,17 +96,16 @@ void layout(int a , int b){
         else{
             for(int k = 10*i - 9 ; k <= 10*i ; k++){
 
-                if (k == a) { 
+                if(k == a && k == b){
+                printf("#P12  ");
+                }
+
+                else if (k == a) { 
                 printf("#P1   "); 
                 } 
                 else if (k == b) { 
                 printf("#P2   "); 
                 } 
-
-                else if(k == a == b){
-                printf("#P12  ");
-                }
-
                 else{
                 printf("%d     " , k);
                 }
@@ -116,17 +118,15 @@ void layout(int a , int b){
 
     for(int i = board[0] ; i <= board[9] ; i++){
 
-            if (i == a) { 
+            if(i == a && i == b){
+                printf("#P12   ");
+            }
+            else if (i == a) { 
                 printf("#P1    "); 
             } 
             else if (i == b) { 
                 printf("#P2    "); 
             } 
-
-            else if(i == a == b){
-                printf("#P12   ");
-            }
-
             else{
             printf("%d      " , i);
             }
@@ -162,6 +162,7 @@ void maingame()
             else if (p1 + c == 100)
             {
                 printf("P1 wins!");
+                exit(0);
             }
             else
             {
@@ -191,6 +192,7 @@ void maingame()
             else if (p2 + c == 100)
             {
                 printf("P2 wins!");
+                exit(0);
             }
             else
             {
