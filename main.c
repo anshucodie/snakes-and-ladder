@@ -17,126 +17,128 @@ void clearTerminal()
 #endif
 }
 
-void layout(int a, int b)
-{
+#include<stdio.h>
 
-    for (int i = 0; i < 100; i++)
-    {
-        board[i] = i + 1;
+int P1 = 0;
+int P2 = 0;
+int board[100];
+
+void layout(int a , int b){
+
+    for(int i = 0 ; i < 100 ; i++){
+        board[i] = i+1;
     }
     int j = 0;
-    while (a == board[j])
-    {
-        int n = board[j];
-        board[j] = a;
-        j++;
-    }
-
-    for (int i = board[99]; i >= board[98]; i--)
-    {
-        if (i == a)
-        {
-            printf("#P1    ");
-        }
-        else if (i == b)
-        {
-            printf("#P2    ");
-        }
-        else
-        {
-            printf("%d    ", i);
-        }
-    }
-
-    for (int i = board[97]; i >= board[90]; i--)
-    {
-        if (i == a)
-        {
-            printf(" #P1    ");
-        }
-        else if (i == b)
-        {
-            printf(" #P2    ");
+    while(a == board[j]){
+            int n = board[j];
+            board[j] = a;
+            j++;
         }
 
-        else
-        {
-            printf(" %d    ", i);
-        }
-    }
+    for(int i = board[99] ; i >= board[98] ; i--){
+            if (i == a) { 
+                printf("#P1  "); 
+            } 
+            else if (i == b) { 
+                printf("#P2  "); 
+            } 
 
-    printf("\n");
-    printf("\n");
-    printf("\n");
-
-    for (int i = board[8]; i >= board[1]; i--)
-    {
-        if (i % 2 == 0)
-        {
-            for (int j = 10 * i; j >= 10 * i - 9; j--)
-            {
-                if (j == a)
-                {
-                    printf("#P1     ");
-                }
-                else if (j == b)
-                {
-                    printf("#P2     ");
-                }
-                else
-                {
-                    printf("%d     ", j);
-                }
+            else if(i == a == b){
+                printf("#P12 ");
             }
-            printf("\n");
-            printf("\n");
-            printf("\n");
+
+            else{
+                printf("%d    " , i);
+            }
+    }
+
+    for(int i = board[97] ; i >= board[90] ; i--){
+            if (i == a) { 
+                printf(" #P1  "); 
+            } 
+            else if (i == b) { 
+                printf(" #P2  "); 
+            } 
+
+            else if(i == a == b){
+                printf(" #P12 ");
+            }
+        
+            else{
+            printf(" %d    " , i);
+            }
+    }
+
+    printf("\n");
+    printf("\n");
+    printf("\n");
+
+    for(int i = board[8] ; i >= board[1] ; i--){
+        if(i%2 == 0){
+            for(int j = 10*i ;j >= 10*i - 9 ; j--){
+            if (j == a) { 
+                printf("#P1   "); 
+            } 
+            else if (j == b) { 
+                printf("#P2   "); 
+            } 
+
+            else if(j == a == b){
+                printf("#P12  ");
+            }
+
+            else{
+            printf("%d     " , j);
+            }
+        }
+        printf("\n");
+        printf("\n");
+        printf("\n");
         }
 
-        else
-        {
-            for (int k = 10 * i - 9; k <= 10 * i; k++)
-            {
+        else{
+            for(int k = 10*i - 9 ; k <= 10*i ; k++){
 
-                if (k == a)
-                {
-                    printf("#P1     ");
+                if (k == a) { 
+                printf("#P1   "); 
+                } 
+                else if (k == b) { 
+                printf("#P2   "); 
+                } 
+
+                else if(k == a == b){
+                printf("#P12  ");
                 }
-                else if (k == b)
-                {
-                    printf("#P2     ");
+
+                else{
+                printf("%d     " , k);
                 }
-                else
-                {
-                    printf("%d     ", k);
-                }
-            }
-            printf("\n");
-            printf("\n");
-            printf("\n");
+        }
+        printf("\n");
+        printf("\n");
+        printf("\n");
         }
     }
 
-    for (int i = board[0]; i <= board[9]; i++)
-    {
+    for(int i = board[0] ; i <= board[9] ; i++){
 
-        if (i == a)
-        {
-            printf("#P1      ");
-        }
-        else if (i == b)
-        {
-            printf("#P2      ");
-        }
+            if (i == a) { 
+                printf("#P1    "); 
+            } 
+            else if (i == b) { 
+                printf("#P2    "); 
+            } 
 
-        else
-        {
-            printf("%d      ", i);
-        }
+            else if(i == a == b){
+                printf("#P12   ");
+            }
+
+            else{
+            printf("%d      " , i);
+            }
     }
     printf("\n");
 }
-
 void maingame()
 {
     while (p1 != 100 || p2 != 100)
