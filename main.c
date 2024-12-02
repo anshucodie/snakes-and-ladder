@@ -29,51 +29,58 @@ int move(int currentPosition, int roll)
     return finalPosition;
 }
 
-void layout(){
-    for(int i = 100 ; i >= 99 ; i--){
-        printf("%d    " , i);
+void layout()
+{
+    for (int i = 100; i >= 99; i--)
+    {
+        printf("%d    ", i);
     }
 
-    for(int i = 98 ; i >= 91 ; i--){
-        printf(" %d    " , i);
+    for (int i = 98; i >= 91; i--)
+    {
+        printf(" %d    ", i);
     }
 
     printf("\n");
     printf("\n");
     printf("\n");
 
-    for(int i = 9 ; i >= 2 ; i--){
-        if(i%2 == 0){
-            for(int j = 10*i ;j >= 10*i - 9 ; j--){
-            printf("%d     " , j);
-        }
-        printf("\n");
-        printf("\n");
-        printf("\n");
+    for (int i = 9; i >= 2; i--)
+    {
+        if (i % 2 == 0)
+        {
+            for (int j = 10 * i; j >= 10 * i - 9; j--)
+            {
+                printf("%d     ", j);
+            }
+            printf("\n");
+            printf("\n");
+            printf("\n");
         }
 
-        else{
-            for(int k = 10*i - 9 ; k <= 10*i ; k++){
-            printf("%d     " , k);
-        }
-        printf("\n");
-        printf("\n");
-        printf("\n");
+        else
+        {
+            for (int k = 10 * i - 9; k <= 10 * i; k++)
+            {
+                printf("%d     ", k);
+            }
+            printf("\n");
+            printf("\n");
+            printf("\n");
         }
     }
 
-    for(int i = 1 ; i <= 10 ; i++){
-        printf("%d      " , i);
+    for (int i = 1; i <= 10; i++)
+    {
+        printf("%d      ", i);
     }
 }
-
-
 
 int main()
 {
     int n;
-    printf("===============================================");
-    printf("To start press 1, to exit press 0");
+    printf("=================================================\n");
+    printf("To start press 1, to exit press 0\n");
     printf("Enter your choice: ");
     scanf("%d", &n);
     switch (n)
@@ -83,6 +90,7 @@ int main()
         break;
 
     case 1:
+        layout();
     }
 
     return 0;
