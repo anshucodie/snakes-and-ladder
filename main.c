@@ -1,12 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 int p1 = 0, p2 = 0;
 int c, turn;
 int board[100];
 char ch;
 
-int dice() { return rand() % 6 + 1; }
+int dice() { 
+    srand(time(NULL));
+    return rand() % 6 + 1; 
+}
 
 void clearTerminal()
 {
