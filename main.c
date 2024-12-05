@@ -7,11 +7,14 @@ int c, turn;
 int board[100];
 char ch;
 
-int dice() { 
+// Gives out a random number between 1 and 6, and acts like a virtual dice
+int dice()
+{
     srand(time(NULL));
-    return rand() % 6 + 1; 
+    return rand() % 6 + 1;
 }
 
+// Clears out the terminal each time the dice is rolled
 void clearTerminal()
 {
 #ifdef _WIN32
@@ -21,122 +24,156 @@ void clearTerminal()
 #endif
 }
 
-void layout(int a , int b){
+// Creates the layout for the game and also prints the position of Player 1 and Player 2 on the board
+void layout(int a, int b)
+{
 
-    for(int i = 0 ; i < 100 ; i++){
-        board[i] = i+1;
+    for (int i = 0; i < 100; i++)
+    {
+        board[i] = i + 1;
     }
     int j = 0;
-    while(a == board[j]){
-            int n = board[j];
-            board[j] = a;
-            j++;
-        }
-
-    for(int i = board[99] ; i >= board[98] ; i--){
-            
-            if(i == a && i == b){
-                printf("#P12 ");
-            }
-
-            else if (i == a) { 
-                printf("#P1  "); 
-            } 
-                
-            else if (i == b) { 
-                printf("#P2  "); 
-            } 
-
-            else{
-                printf("%d    " , i);
-            }
+    while (a == board[j])
+    {
+        int n = board[j];
+        board[j] = a;
+        j++;
     }
 
-    for(int i = board[97] ; i >= board[90] ; i--){
-            if(i == a && i == b){
-                printf(" #P12 ");
-            }
-            
-            else if (i == a) { 
-                printf(" #P1  "); 
-            } 
-            else if (i == b) { 
-                printf(" #P2  "); 
-            } 
-        
-            else{
-            printf(" %d    " , i);
-            }
+    for (int i = board[99]; i >= board[98]; i--)
+    {
+
+        if (i == a && i == b)
+        {
+            printf("#P12 ");
+        }
+
+        else if (i == a)
+        {
+            printf("#P1  ");
+        }
+
+        else if (i == b)
+        {
+            printf("#P2  ");
+        }
+
+        else
+        {
+            printf("%d    ", i);
+        }
+    }
+
+    for (int i = board[97]; i >= board[90]; i--)
+    {
+        if (i == a && i == b)
+        {
+            printf(" #P12 ");
+        }
+
+        else if (i == a)
+        {
+            printf(" #P1  ");
+        }
+        else if (i == b)
+        {
+            printf(" #P2  ");
+        }
+
+        else
+        {
+            printf(" %d    ", i);
+        }
     }
 
     printf("\n");
     printf("\n");
     printf("\n");
 
-    for(int i = board[8] ; i >= board[1] ; i--){
-        if(i%2 == 0){
-            for(int j = 10*i ;j >= 10*i - 9 ; j--){
+    for (int i = board[8]; i >= board[1]; i--)
+    {
+        if (i % 2 == 0)
+        {
+            for (int j = 10 * i; j >= 10 * i - 9; j--)
+            {
 
-            if(j == a && j == b){
-                printf("#P12  ");
-            }
-                
-            else if (j == a) { 
-                printf("#P1   "); 
-            } 
-            else if (j == b) { 
-                printf("#P2   "); 
-            } 
-                
-            else{
-            printf("%d     " , j);
-            }
-        }
-        printf("\n");
-        printf("\n");
-        printf("\n");
-        }
-
-        else{
-            for(int k = 10*i - 9 ; k <= 10*i ; k++){
-
-                if(k == a && k == b){
-                printf("#P12  ");
+                if (j == a && j == b)
+                {
+                    printf("#P12  ");
                 }
 
-                else if (k == a) { 
-                printf("#P1   "); 
-                } 
-                else if (k == b) { 
-                printf("#P2   "); 
-                } 
-                else{
-                printf("%d     " , k);
+                else if (j == a)
+                {
+                    printf("#P1   ");
                 }
+                else if (j == b)
+                {
+                    printf("#P2   ");
+                }
+
+                else
+                {
+                    printf("%d     ", j);
+                }
+            }
+            printf("\n");
+            printf("\n");
+            printf("\n");
         }
-        printf("\n");
-        printf("\n");
-        printf("\n");
+
+        else
+        {
+            for (int k = 10 * i - 9; k <= 10 * i; k++)
+            {
+
+                if (k == a && k == b)
+                {
+                    printf("#P12  ");
+                }
+
+                else if (k == a)
+                {
+                    printf("#P1   ");
+                }
+                else if (k == b)
+                {
+                    printf("#P2   ");
+                }
+                else
+                {
+                    printf("%d     ", k);
+                }
+            }
+            printf("\n");
+            printf("\n");
+            printf("\n");
         }
     }
 
-    for(int i = board[0] ; i <= board[9] ; i++){
+    for (int i = board[0]; i <= board[9]; i++)
+    {
 
-            if(i == a && i == b){
-                printf("#P12   ");
-            }
-            else if (i == a) { 
-                printf("#P1    "); 
-            } 
-            else if (i == b) { 
-                printf("#P2    "); 
-            } 
-            else{
-            printf("%d      " , i);
-            }
+        if (i == a && i == b)
+        {
+            printf("#P12   ");
+        }
+        else if (i == a)
+        {
+            printf("#P1    ");
+        }
+        else if (i == b)
+        {
+            printf("#P2    ");
+        }
+        else
+        {
+            printf("%d      ", i);
+        }
     }
     printf("\n");
 }
+
+// Processes how the Players act according to the dice and how they move
 void maingame()
 {
     while (p1 != 100 || p2 != 100)
@@ -205,7 +242,8 @@ void maingame()
             }
             printf("P2 rolled %d in the dice\n\n", c);
         }
-
+        
+        // Defines snakes and ladders in the game
         switch (p1)
         {
         case 6:
@@ -257,6 +295,7 @@ void maingame()
     }
 }
 
+// Main function which you see in the start of the program
 int main()
 {
     int n;
