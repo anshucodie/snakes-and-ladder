@@ -72,7 +72,7 @@ void loadgame()
 // Creates the layout for the game and also prints the position of Player 1 and Player 2 on the board
 void layout(int a, int b)
 {
-
+    printf("\n");
     for (int i = 0; i < 100; i++)
     {
         board[i] = i + 1;
@@ -125,6 +125,16 @@ void layout(int a, int b)
             printf(" #P2  ");
         }
 
+        else if (i == 98 || i == 93)
+        {
+            printf(" (%d)  ", i);
+        }
+
+        else if (i == 91)
+        {
+            printf(" /%d/  ", i);
+        }
+
         else
         {
             printf(" %d    ", i);
@@ -156,6 +166,21 @@ void layout(int a, int b)
                     printf("#P2   ");
                 }
 
+                else if (j == 98 || j == 93 || j == 17)
+                {
+                    printf("(%d)   ", j);
+                }
+
+                else if (j == 73 || j == 39)
+                {
+                    printf("/%d/   ", j);
+                }
+
+                else if (j == 76 || j == 54 || j == 32)
+                {
+                    printf("|%d|   ", j);
+                }
+
                 else
                 {
                     printf("%d     ", j);
@@ -184,6 +209,22 @@ void layout(int a, int b)
                 {
                     printf("#P2   ");
                 }
+
+                else if (k == 62 || k == 64 || k == 86)
+                {
+                    printf("(%d)   ", k);
+                }
+
+                else if (k == 89 || k == 43 || k == 21)
+                {
+                    printf("/%d/   ", k);
+                }
+
+                else if (k == 84 || k == 66 || k == 48)
+                {
+                    printf("|%d|   ", k);
+                }
+
                 else
                 {
                     printf("%d     ", k);
@@ -210,6 +251,12 @@ void layout(int a, int b)
         {
             printf("#P2    ");
         }
+
+        else if (i == 7)
+        {
+            printf("(%d)    ", i);
+        }
+
         else
         {
             printf("%d      ", i);
@@ -293,50 +340,60 @@ int maingame()
             // Defines the snakes and ladders in the game
             switch (p1)
             {
-            case 6:
-                p1 = 40;
+                // Snakes
+            case 17:
+                p1 = 7;
                 break;
-            case 23:
-                p1 = 13;
+            case 62:
+                p1 = 19;
                 break;
-            case 45:
-                p1 = 38;
+            case 86:
+                p1 = 37;
                 break;
-            case 61:
-                p1 = 43;
-                break;
-            case 65:
-                p1 = 57;
-                break;
-            case 77:
-                p1 = 82;
+            case 93:
+                p1 = 69;
                 break;
             case 98:
-                p1 = 88;
+                p1 = 80;
+                break;
+                // Ladders
+            case 21:
+                p1 = 43;
+                break;
+            case 32:
+                p1 = 84;
+                break;
+            case 73:
+                p1 = 91;
                 break;
             }
             switch (p2)
             {
-            case 6:
-                p2 = 40;
+                // Snakes
+            case 17:
+                p1 = 7;
                 break;
-            case 23:
-                p2 = 13;
+            case 62:
+                p1 = 19;
                 break;
-            case 45:
-                p2 = 38;
+            case 86:
+                p1 = 37;
                 break;
-            case 61:
-                p2 = 43;
-                break;
-            case 65:
-                p2 = 57;
-                break;
-            case 77:
-                p2 = 82;
+            case 93:
+                p1 = 69;
                 break;
             case 98:
-                p2 = 88;
+                p1 = 80;
+                break;
+                // Ladders
+            case 21:
+                p1 = 43;
+                break;
+            case 32:
+                p1 = 84;
+                break;
+            case 73:
+                p1 = 91;
                 break;
             }
         }
