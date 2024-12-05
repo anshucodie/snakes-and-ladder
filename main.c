@@ -272,7 +272,7 @@ int maingame()
     {
         layout(p1, p2);
         c = dice();
-        printf("\nPress enter to roll the dice...\n");
+        printf("\nPress enter to roll the dice...\nTo save the game press 9\n");
         ch = getchar();
         if (ch == 10)
         {
@@ -422,6 +422,7 @@ int main()
     printf("To enter the snake world enter 1\n");
     printf("To load a previous game enter 2\n");
     printf("To exit out enter 0\n");
+    printf("Snake's head is showed by (0), ladders are shown by |0|\n");
     printf("=================================================\n");
     printf("Enter your choice: ");
     scanf("%d", &n);
